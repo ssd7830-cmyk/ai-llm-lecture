@@ -1531,6 +1531,17 @@
       ctx.fillStyle="rgba(255,255,255,"+(.95*cp).toFixed(3)+")";
       ctx.beginPath();ctx.arc(cx,cy,3.5+5*cp,0,6.2832);ctx.fill();
     }
+    /* 4단계: 감사합니다 */
+    var tp=Math.max(0,(p-.86)/.14);
+    if(tp>0){
+      var te=1-Math.pow(1-tp,3);
+      ctx.textAlign="center";
+      ctx.font='500 '+Math.round(H*.052)+'px "Pretendard","Apple SD Gothic Neo",sans-serif';
+      ctx.shadowColor="rgba(77,208,196,.55)";ctx.shadowBlur=22*te;
+      ctx.fillStyle="rgba(237,239,245,"+(.92*te).toFixed(3)+")";
+      ctx.fillText("감  사  합  니  다", W*.5, H*.8+16*(1-te));
+      ctx.shadowBlur=0;ctx.textAlign="left";
+    }
   }
 
   var charts = { "c-venn":venn, "c-sim":sim, "c-end":endsky };
