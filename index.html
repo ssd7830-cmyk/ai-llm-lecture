@@ -939,7 +939,7 @@
           <table class="cmp r">
             <tr><th>예전엔</th><th class="acc">지금은</th></tr>
             <tr><td class="bad">긴 작업 중간에 이탈</td><td class="good">밤새 돌려도 완주</td></tr>
-            <tr><td class="bad">토큰 예산을 사람이 지정</td><td class="good">모델이 알아서 판단</td></tr>
+            <tr><td class="bad">토큰<span style="color:var(--mute);font-weight:400;font-size:.78em">(AI 사용량 단위)</span> 예산을 사람이 지정</td><td class="good">모델이 알아서 판단</td></tr>
             <tr><td class="bad">"3번마다 보고해" 를 강제</td><td class="good">알아서 보고</td></tr>
             <tr><td class="bad">"검증해라" 지시 필요</td><td class="good">시키면 오히려 과잉검증</td></tr>
           </table>
@@ -954,7 +954,7 @@
           <div class="f3-link"><i></i></div>
           <div class="f3-card">
             <div class="f3-ico">⌨️</div>
-            <div class="f3-tx"><b>터미널을 직접 조작</b><span>$ python 정리.py 다운로드/*.xlsx</span></div>
+            <div class="f3-tx"><b>터미널<span style="color:var(--mute);font-weight:400;font-size:.78em">(명령 치는 검은 화면)</span>을 직접 조작</b><span>$ python 정리.py 다운로드/*.xlsx</span></div>
           </div>
           <div class="f3-link"><i style="animation-delay:.6s"></i></div>
           <div class="f3-card hot">
@@ -1032,7 +1032,7 @@
         <div class="pipe-arr r">→</div>
         <div class="pipe-say r">
           <div class="pipe-chip"><b>›</b> 폴더 보고 실행해</div>
-          <div class="pipe-chip alt">⏰ 스케줄러에 걸면 이 말도 필요 없음</div>
+          <div class="pipe-chip alt">⏰ 스케줄러<span style="color:var(--mute);font-size:.82em">(정한 시간 자동 실행)</span>에 걸면 이 말도 필요 없음</div>
         </div>
         <div class="pipe-arr r">→</div>
         <div class="results r">
@@ -1074,8 +1074,8 @@
    제안하고, 장단점과 언제 쓰면 좋은지 알려줘.
    화면·구조는 말로 말고 시안으로 보여줘.
 
-<span class="k">결과물</span> — 브라우저에서 바로 열리는 대시보드로.
-   2시간 안에 작동하는 최소 프로토타입으로.
+<span class="k">결과물</span> — 브라우저에서 바로 열리는 대시보드(한눈에 보는 현황판)로.
+   2시간 안에 작동하는 최소 프로토타입(일단 돌아가는 시제품)으로.
    계획과 달라진 부분은 짧게 기록해줘.
 
 그리고 전 과정에서 <span class="k">안드레 카파시 가이드라인</span>을 지켜줘.</div>
@@ -1103,10 +1103,10 @@
         <div>
           <h2 class="r">비싼 모델엔 <em class="hl">판단</em>을,<br>성실한 모델엔 <strong>반복</strong>을</h2>
           <table class="cmp step">
-            <tr><th class="acc">가장 똑똑한 모델 — Fable 5</th><th>일 잘하는 모델 — Opus</th></tr>
-            <tr><td class="good">아키텍처 설계</td><td>리팩토링</td></tr>
-            <tr><td class="good">까다로운 디버깅</td><td>대규모 마이그레이션</td></tr>
-            <tr><td class="good">중요한 코드리뷰</td><td>반복 수정 루프</td></tr>
+            <tr><th class="acc">가장 똑똑한 모델<span style="color:var(--mute);font-weight:400;font-size:.78em">(모델=AI의 등급)</span> — Fable 5</th><th>일 잘하는 모델 — Opus</th></tr>
+            <tr><td class="good">아키텍처 설계<span style="color:var(--mute);font-weight:400;font-size:.78em"> (전체 구조 짜기)</span></td><td>리팩토링<span style="color:var(--mute);font-weight:400;font-size:.78em"> (코드 정리·청소)</span></td></tr>
+            <tr><td class="good">까다로운 디버깅<span style="color:var(--mute);font-weight:400;font-size:.78em"> (오류 찾아 고치기)</span></td><td>대규모 마이그레이션<span style="color:var(--mute);font-weight:400;font-size:.78em"> (시스템 통째로 이사)</span></td></tr>
+            <tr><td class="good">중요한 코드리뷰<span style="color:var(--mute);font-weight:400;font-size:.78em"> (코드 검토)</span></td><td>반복 수정 루프</td></tr>
             <tr><td class="good">비싼 의사결정</td><td></td></tr>
           </table>
           <p class="lede step" style="margin-top:1.5rem">직원 배치와 같습니다. <strong>모델마다 급여가 다릅니다.</strong></p>
@@ -1114,7 +1114,7 @@
         </div>
         <div>
           <div class="nl-box r" style="font-size:clamp(.95rem,1.7vw,1.3rem);line-height:1.7">아키텍처 설계, 까다로운 디버깅,<br>중요한 코드리뷰, 비싼 의사결정을 할 때는<br>가장 똑똑한 <em class="hl">페이블 5</em>가 진행하고,<br><br>리팩토링, 대규모 마이그레이션,<br>반복 수정 루프는 <strong>오퍼스</strong>가 담당한다.</div>
-          <p class="side-tag acc">제가 실제로 쓰는 규칙 파일 그대로 — CLAUDE.md에 들어 있습니다</p>
+          <p class="side-tag acc">제가 실제로 쓰는 규칙 파일 그대로 — CLAUDE.md(클로드가 항상 먼저 읽는 규칙 파일)에 들어 있습니다</p>
         </div>
       </div>
     </div>
@@ -1126,7 +1126,7 @@
     <div class="body">
       <p class="eyebrow r">쉬어가기 · Live Demo</p>
       <h2 class="kw r">J A R V I S</h2>
-      <p class="kw-sub r"><span class="dot" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--warn);margin-right:.5rem"></span>맥북 로컬 · 부르면 대답합니다</p>
+      <p class="kw-sub r"><span class="dot" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--warn);margin-right:.5rem"></span>맥북 로컬(인터넷 없이 내 컴퓨터 안에서) · 부르면 대답합니다</p>
     </div>
     <div class="backup"><img src="images/jarvis.jpg" alt="백업 화면"></div>
   </section>
@@ -1151,7 +1151,7 @@
           <p class="lede step">개발자마다 자기 스타일이 있습니다.<br>카파시의 스타일은 — <strong>줄이는 것.</strong> 우리는 이걸 베낍니다.</p>
           <div class="step">
             <blockquote>"성능이 2% 좋아져도, 복잡한 코드<br>500줄이 든다면 <strong>거절할 수 있다.</strong>"</blockquote>
-            <p class="quote-src">— llm.c 저장소 운영 원칙</p>
+            <p class="quote-src">— llm.c 저장소(코드 보관함) 운영 원칙</p>
           </div>
           <div class="step" style="margin-top:1.2rem">
             <blockquote class="wr">"AI는 1,000줄로 만든다.<br><em class="wr">100줄이면 될 것을.</em>"</blockquote>
@@ -1176,7 +1176,7 @@
             <div class="lrow top"><em>nanochat</em><b>~8,000줄</b><span>← ChatGPT 통째로</span></div>
           </div>
           <p class="figure-cap">전부 그의 GitHub 원문 수치</p>
-          <p class="note" style="margin-top:.8rem">참고 — 지금 보시는 이 강의자료도 같은 원칙입니다.<br><strong style="color:var(--accent)">HTML 파일 1개, 외부 라이브러리 0.</strong></p>
+          <p class="note" style="margin-top:.8rem">참고 — 지금 보시는 이 강의자료도 같은 원칙입니다.<br><strong style="color:var(--accent)">HTML 파일 1개, 외부 라이브러리(남이 만든 코드 부품) 0.</strong></p>
         </div>
       </div>
     </div>
@@ -1220,12 +1220,12 @@
           <h2 class="kw r"><em class="hl">3,000번</em> 돌려본다</h2>
           <p class="lede step" style="margin-top:1.4rem">개발자는 코드를 <strong>눈으로</strong> 검증합니다.<br>하지만 눈으로는 기껏해야 몇 번 — <em class="hl">실행은 3,000번도 시킬 수 있습니다.</em></p>
           <div class="step keep">
-            <div class="nl-box" style="max-width:620px"><em class="hl" style="font-weight:800">① 찾아라</em><br>지금부터 너는 이 페이지에 접속한 사용자다.<br>하나부터 열까지 모두 클릭해라.<br>문제가 되는 부분이나 개선사항이 있다면<br>바로 고치지 말고 보고만 해라.<br><br><em class="hl" style="font-weight:800">② 고쳐라</em><br>의도를 테스트로 박아놓고, 빨간불을 잡아라.<br>초록불이 될 때까지 반복하라.<br>아직 테스트 안 된 의도를 찾아 새 테스트를 추가하라.<br>더 이상 새 빨간불이 안 나올 때까지 —<br><b style="color:var(--warn)">최대 3,000번까지 반복하라.</b><br><br><span style="color:var(--mute);font-size:.88em">단, 내 의도를 바꿔야 하는 문제는 멈추고 물어봐라.</span></div>
+            <div class="nl-box" style="max-width:620px"><em class="hl" style="font-weight:800">① 찾아라</em><br>지금부터 너는 이 페이지에 접속한 사용자다.<br>하나부터 열까지 모두 클릭해라.<br>문제가 되는 부분이나 개선사항이 있다면<br>바로 고치지 말고 보고만 해라.<br><br><em class="hl" style="font-weight:800">② 고쳐라</em><br>의도를 테스트(자동 검사)로 박아놓고, 빨간불을 잡아라.<br>초록불이 될 때까지 반복하라.<br>아직 테스트 안 된 의도를 찾아 새 테스트를 추가하라.<br>더 이상 새 빨간불이 안 나올 때까지 —<br><b style="color:var(--warn)">최대 3,000번까지 반복하라.</b><br><br><span style="color:var(--mute);font-size:.88em">단, 내 의도를 바꿔야 하는 문제는 멈추고 물어봐라.</span></div>
             <p class="side-tag acc">실제로 쓰는 검증 프롬프트</p>
           </div>
           <div class="step keep" style="margin-top:1.3rem;font-family:var(--mono);font-size:clamp(.78rem,1.25vw,1.02rem);line-height:2.15;color:#C3CADB">
             엉망의 범인 = 바이브코딩 ❌ → <em class="hl">검증 루프 없는 개발</em> ⭕<br>
-            루프 ON → 수준 <em class="hl">= 사람 팀</em> · 속도 <em class="hl">&gt; 사람 팀</em> <span style="color:var(--mute);font-size:.85em">(우리가 만드는 규모에선)</span><br>
+            루프<span style="color:var(--mute);font-size:.85em">(반복 실행)</span> ON → 수준 <em class="hl">= 사람 팀</em> · 속도 <em class="hl">&gt; 사람 팀</em> <span style="color:var(--mute);font-size:.85em">(우리가 만드는 규모에선)</span><br>
             완벽 = <strong>없음</strong> <span style="color:var(--mute)">(사람도, AI도)</span>
           </div>
           <blockquote class="step" style="margin-top:1.4rem">개발자는 지하를 <strong>설계</strong>로 증명하고,<br>우리는 지하를 <em class="hl">실측</em>으로 증명한다.</blockquote>
@@ -1396,7 +1396,7 @@
     var layers=[
       {k:"AI",  ko:"인공지능",    sub:"사람처럼 판단하는 모든 기술", c:"#2E3646", t:"#8A93A8"},
       {k:"ML",  ko:"머신러닝",    sub:"데이터로 스스로 학습",        c:"#2A7F79", t:"#4FA9A2"},
-      {k:"DL",  ko:"딥러닝",      sub:"신경망을 깊게 쌓기",          c:"#3B9C93", t:"#3B9C93"},
+      {k:"DL",  ko:"딥러닝",      sub:"신경망(뇌를 본뜬 계산)을 깊게 쌓기",  c:"#3B9C93", t:"#3B9C93"},
       {k:"LLM", ko:"거대언어모델", sub:"GPT · 클로드 — 오늘의 도구",  c:"#4DD0C4", t:"#4DD0C4"}
     ];
     var pad=30;
