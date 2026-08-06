@@ -572,6 +572,15 @@
   }
   .term-bar i{width:9px;height:9px;border-radius:50%;background:var(--line);display:block;}
   .term-bar span{margin-left:.5rem;font-size:.66rem;letter-spacing:.14em;color:var(--mute);}
+  .copy-btn{
+    margin-left:auto;cursor:pointer;
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;
+    color:var(--accent);background:rgba(77,208,196,.08);
+    border:1px solid var(--accent-dim);border-radius:5px;
+    padding:.3rem .8rem;transition:background .2s;
+  }
+  .copy-btn:hover{background:rgba(77,208,196,.18);}
+  .copy-btn.done{color:#0B0E14;background:var(--accent);border-color:var(--accent);}
   .term-body{
     padding:1rem 1.1rem;
     font-size:clamp(.76rem,1.3vw,1rem);
@@ -686,6 +695,14 @@
     border-bottom:1px solid var(--line);
   }
   .cmp th.acc{color:var(--accent);}
+  .cmp-model{
+    display:block;font-family:var(--mono);font-size:clamp(1.4rem,2.6vw,2.2rem);
+    font-weight:800;letter-spacing:.03em;line-height:1.1;color:var(--ink);
+    text-transform:uppercase;margin-bottom:.4rem;
+  }
+  .cmp th.acc .cmp-model{color:var(--accent);text-shadow:0 0 16px rgba(77,208,196,.35);}
+  .cmp-role{display:block;font-size:.72rem;letter-spacing:.14em;color:var(--mute);font-weight:600;}
+  .cmp-role i{font-style:normal;font-size:.92em;font-weight:400;letter-spacing:.06em;}
   .cmp td{padding:.95rem 1rem .95rem 0;border-bottom:1px solid var(--line);vertical-align:top;color:#C3CADB;}
   .cmp td.bad{color:var(--mute);}
   .cmp td.good{color:var(--accent);font-weight:600;}
@@ -1055,7 +1072,7 @@
           <h2 class="r" style="font-size:clamp(1.5rem,3.2vw,2.6rem)">나만의 대시보드 만들기</h2>
         </div>
         <div class="term r">
-          <div class="term-bar"><i></i><i></i><i></i><span>실습 프롬프트 — 그대로 복사</span></div>
+          <div class="term-bar"><i></i><i></i><i></i><span>실습 프롬프트 — 그대로 복사</span><button id="copyPrompt" class="copy-btn">복사</button></div>
           <div class="term-body wrap"><span class="k">[내가 만들고 싶은 것]</span>
 <span class="fill-box">여기에 만들고 싶은 것을 자유롭게 적어주세요<i class="caret"></i></span>
 
@@ -1109,7 +1126,10 @@
         <div>
           <h2 class="r">비싼 모델엔 <em class="hl">판단</em>을,<br>성실한 모델엔 <strong>반복</strong>을</h2>
           <table class="cmp step">
-            <tr><th class="acc">가장 똑똑한 모델<span style="color:var(--mute);font-weight:400;font-size:.78em">(모델=AI의 등급)</span> — Fable 5</th><th>일 잘하는 모델 — Opus</th></tr>
+            <tr>
+              <th class="acc"><b class="cmp-model">Fable 5</b><span class="cmp-role">가장 똑똑한 모델 <i>(모델=AI의 등급)</i></span></th>
+              <th><b class="cmp-model">Opus 5</b><span class="cmp-role">일 잘하는 모델</span></th>
+            </tr>
             <tr><td class="good">아키텍처 설계<span style="color:var(--mute);font-weight:400;font-size:.78em"> (전체 구조 짜기)</span></td><td>리팩토링<span style="color:var(--mute);font-weight:400;font-size:.78em"> (코드 정리·청소)</span></td></tr>
             <tr><td class="good">까다로운 디버깅<span style="color:var(--mute);font-weight:400;font-size:.78em"> (오류 찾아 고치기)</span></td><td>대규모 마이그레이션<span style="color:var(--mute);font-weight:400;font-size:.78em"> (시스템 통째로 이사)</span></td></tr>
             <tr><td class="good">중요한 코드리뷰<span style="color:var(--mute);font-weight:400;font-size:.78em"> (코드 검토)</span></td><td>반복 수정 루프</td></tr>
@@ -1119,7 +1139,7 @@
           <div class="step-dots"><i></i><i></i></div>
         </div>
         <div>
-          <div class="nl-box r" style="font-size:clamp(.95rem,1.7vw,1.3rem);line-height:1.7">아키텍처 설계, 까다로운 디버깅,<br>중요한 코드리뷰, 비싼 의사결정을 할 때는<br>가장 똑똑한 <em class="hl">페이블 5</em>가 진행하고,<br><br>리팩토링, 대규모 마이그레이션,<br>반복 수정 루프는 <strong>오퍼스</strong>가 담당한다.</div>
+          <div class="nl-box r" style="font-size:clamp(.95rem,1.7vw,1.3rem);line-height:1.7">아키텍처 설계, 까다로운 디버깅,<br>중요한 코드리뷰, 비싼 의사결정을 할 때는<br>가장 똑똑한 <em class="hl">페이블 5</em>가 진행하고,<br><br>리팩토링, 대규모 마이그레이션,<br>반복 수정 루프는 <strong>오퍼스 5</strong>가 담당한다.</div>
           <p class="side-tag acc">제가 실제로 쓰는 규칙 파일 그대로 — CLAUDE.md(클로드가 항상 먼저 읽는 규칙 파일)에 들어 있습니다</p>
         </div>
       </div>
@@ -1223,24 +1243,23 @@
       <p class="eyebrow r">우리의 대답</p>
       <div class="split" style="grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr)">
         <div>
-          <h2 class="kw r"><em class="hl">3,000번</em> 돌려본다</h2>
-          <p class="lede step" style="margin-top:1.4rem">개발자는 코드를 <strong>눈으로</strong> 검증합니다.<br>하지만 눈으로는 기껏해야 몇 번 — <em class="hl">실행은 3,000번도 시킬 수 있습니다.</em></p>
+          <h2 class="kw r" style="font-size:clamp(1.8rem,4.4vw,3.6rem)"><em class="hl">3,000번</em> 돌려본다</h2>
+          <p class="lede step" style="margin-top:1rem;margin-bottom:1rem">개발자는 코드를 <strong>눈으로</strong> 검증합니다.<br>하지만 눈으로는 기껏해야 몇 번 — <em class="hl">실행은 3,000번도 시킬 수 있습니다.</em></p>
           <div class="step keep">
-            <div class="nl-box" style="max-width:620px"><em class="hl" style="font-weight:800">① 찾아라</em><br>지금부터 너는 이 페이지에 접속한 사용자다.<br>하나부터 열까지 모두 클릭해라.<br>문제가 되는 부분이나 개선사항이 있다면<br>바로 고치지 말고 보고만 해라.<br><br><em class="hl" style="font-weight:800">② 고쳐라</em><br>의도를 테스트(자동 검사)로 박아놓고, 빨간불을 잡아라.<br>초록불이 될 때까지 반복하라.<br>아직 테스트 안 된 의도를 찾아 새 테스트를 추가하라.<br>더 이상 새 빨간불이 안 나올 때까지 —<br><b style="color:var(--warn)">최대 3,000번까지 반복하라.</b><br><br><span style="color:var(--mute);font-size:.88em">단, 내 의도를 바꿔야 하는 문제는 멈추고 물어봐라.</span></div>
+            <div class="nl-box" style="max-width:620px;font-size:clamp(.88rem,1.4vw,1.08rem);line-height:1.5;padding:.8rem 1rem"><em class="hl" style="font-weight:800">① 찾아라</em><br>지금부터 너는 이 페이지에 접속한 사용자다.<br>하나부터 열까지 모두 클릭해라.<br>문제가 되는 부분이나 개선사항이 있다면<br>바로 고치지 말고 보고만 해라.<br><br><em class="hl" style="font-weight:800">② 고쳐라</em><br>의도를 테스트(자동 검사)로 박아놓고, 빨간불을 잡아라.<br>초록불이 될 때까지 반복하라.<br>아직 테스트 안 된 의도를 찾아 새 테스트를 추가하라.<br>더 이상 새 빨간불이 안 나올 때까지 —<br><b style="color:var(--warn)">최대 3,000번까지 반복하라.</b><br><br><span style="color:var(--mute);font-size:.88em">단, 내 의도를 바꿔야 하는 문제는 멈추고 물어봐라.</span></div>
             <p class="side-tag acc">실제로 쓰는 검증 프롬프트</p>
           </div>
-          <div class="step keep" style="margin-top:1.3rem;font-family:var(--mono);font-size:clamp(.78rem,1.25vw,1.02rem);line-height:2.15;color:#C3CADB">
-            엉망의 범인 = 바이브코딩 ❌ → <em class="hl">검증 루프 없는 개발</em> ⭕<br>
-            루프<span style="color:var(--mute);font-size:.85em">(반복 실행)</span> ON → 수준 <em class="hl">= 사람 팀</em> · 속도 <em class="hl">&gt; 사람 팀</em> <span style="color:var(--mute);font-size:.85em">(우리가 만드는 규모에선)</span><br>
-            완벽 = <strong>없음</strong> <span style="color:var(--mute)">(사람도, AI도)</span>
+          <div class="step keep" style="margin-top:1rem">
+            <div style="font-family:var(--mono);font-size:clamp(.78rem,1.25vw,1.02rem);line-height:1.7;color:#C3CADB">엉망의 범인 = 바이브코딩 ❌ → <em class="hl">검증 루프 없는 개발</em> ⭕</div>
+            <p class="punch" style="margin-top:.7rem;font-size:clamp(1.1rem,1.95vw,1.55rem);line-height:1.6">AI할아버지가 와도 <strong>100% 완성된 코드는 세상에 존재하지 않습니다.</strong><br>필요한 건 완벽한 코드가 아니라 — 틀린 걸 찾아내는 <em class="hl">방법과 장치</em>입니다.</p>
           </div>
-          <blockquote class="step" style="margin-top:1.4rem">개발자는 지하를 <strong>설계</strong>로 증명하고,<br>우리는 지하를 <em class="hl">실측</em>으로 증명한다.</blockquote>
-          <p class="note step keep" style="margin-top:1.2rem">단 — 결제·개인정보·법적 책임이 걸린 곳은 여전히 사람이 봅니다. 우리는 만능이라고 하지 않습니다. 어디까지 되는지 알 뿐입니다.</p>
-          <div class="step-dots"><i></i><i></i><i></i><i></i><i></i></div>
+          <blockquote class="step" style="margin-top:1rem;font-size:clamp(.95rem,1.7vw,1.35rem)">개발자는 지하를 <strong>설계</strong>로 증명하고,<br>우리는 지하를 <em class="hl">실측</em>으로 증명한다.</blockquote>
+          <div class="step-dots" style="margin-top:.9rem"><i></i><i></i><i></i><i></i><i></i></div>
         </div>
         <div class="figure r">
           <canvas id="c-sim" width="980" height="700"></canvas>
           <p class="figure-cap">시뮬레이션 3,000회 — 청록 = 통과 · 붉은 = 결함 발견</p>
+          <p class="note step keep" style="margin-top:.8rem">단 — 결제·개인정보·법적 책임이 걸린 곳은 여전히 사람이 봅니다. 우리는 만능이라고 하지 않습니다. 어디까지 되는지 알 뿐입니다.</p>
         </div>
       </div>
     </div>
@@ -1259,7 +1278,8 @@
             <li class="step">에러가 아니라 <em class="hl">"아무 일도 없음"</em>을 감지</li>
             <li class="step">감지에서 끝내지 않고 <strong>복구까지 추적</strong></li>
           </ul>
-          <div class="step-dots"><i></i><i></i><i></i></div>
+          <p class="note step keep" style="margin-top:1.4rem">이 봇 안에 AI는 없습니다.<br><strong style="color:var(--accent)">AI가 감시 코드를 짜주고 — 24시간 도는 건 코드입니다.</strong><br>AI는 사고가 터진 뒤, 원인 조사에 투입됩니다.</p>
+          <div class="step-dots"><i></i><i></i><i></i><i></i></div>
         </div>
         <div class="figure r tg">
           <div class="tg-hd"><span class="tg-av">🤖</span><span class="tg-t"><b>어드민 오류_bot</b><i>bot</i></span><span class="tg-live"></span></div>
@@ -1687,6 +1707,42 @@
     var n = parseInt(jumpBuf,10);
     jumpBuf = ""; paintJump();
     if(!isNaN(n) && n>=1 && n<=slides.length) go2(n-1);
+  }
+
+  /* p9 실습 프롬프트 복사 버튼 */
+  var PROMPT_TXT = [
+    "[내가 만들고 싶은 것]",
+    "여기에 적어주세요.",
+    "",
+    "──────────────────────────",
+    "위 요청을 아래 순서로 진행해줘.",
+    "",
+    "사각지대부터 — 내가 놓치고 있는 것, 위험한 전제, 확인이 필요한 부분을 먼저 알려줘. 나한테 더 정확히 지시하려면 어떤 정보가 필요한지도 말해줘.",
+    "",
+    "바로 만들지 말고 질문부터 — 답에 따라 설계가 크게 바뀌는 것부터, 한 번에 하나씩 물어봐. 질문 순서는 네가 정하고, 내 답에 따라 방향을 좁혀줘.",
+    "",
+    "방향은 여러 개로 — 완전히 다른 접근 3~4개를 제안하고, 장단점과 언제 쓰면 좋은지 알려줘. 화면·구조는 말로 말고 시안으로 보여줘.",
+    "",
+    "결과물 — 브라우저에서 바로 열리는 대시보드로. 2시간 안에 작동하는 최소 프로토타입으로. 계획과 달라진 부분은 짧게 기록해줘.",
+    "",
+    "기준 기록 — 진행하면서 내가 답한 것, 확정된 의도는 기준.md에 계속 기록해줘. 다 만들면 기준.md 항목대로 지켜졌는지 스스로 확인해서 알려줘. 그중 다음에도 계속 지킬 규칙은 CLAUDE.md로 올려줘.",
+    "",
+    "그리고 전 과정에서 안드레 카파시 가이드라인을 지켜줘."
+  ].join("\n");
+  var cpBtn = document.getElementById("copyPrompt");
+  if(cpBtn){
+    cpBtn.addEventListener("click", function(){
+      function ok(){ cpBtn.textContent="복사됨 ✓"; cpBtn.classList.add("done");
+        setTimeout(function(){ cpBtn.textContent="복사"; cpBtn.classList.remove("done"); }, 1800); }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(PROMPT_TXT).then(ok);
+      } else {
+        var ta=document.createElement("textarea"); ta.value=PROMPT_TXT;
+        document.body.appendChild(ta); ta.select();
+        try{ document.execCommand("copy"); ok(); }catch(e){}
+        document.body.removeChild(ta);
+      }
+    });
   }
 
   document.getElementById("next").addEventListener("click", function(){ advance(); });
